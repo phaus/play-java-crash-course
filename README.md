@@ -27,3 +27,15 @@ play_version [2.6.1]:
 
 Template applied in ./contacts
 ```
+
+### Setup IDE (option)
+
+In `~/.sbt/0.13/plugins/plugins.sbt` add 
+
+    addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "5.1.0")
+
+After that run
+
+    sbt eclipse
+
+in your project.
