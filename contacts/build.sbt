@@ -7,4 +7,8 @@ lazy val root = (project in file(".")).enablePlugins(PlayJava)
 
 scalaVersion := "2.12.2"
 
-libraryDependencies += guice
+libraryDependencies ++= Seq(
+  guice,
+  "org.webjars" %% "webjars-play" % "2.6.0",
+  "org.webjars" % "bootstrap" % "3.3.7-1"
+)
