@@ -1,3 +1,6 @@
 target
 logs
 contacts/.g8
+.project
+.classpath
+.settings
