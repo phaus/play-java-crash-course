@@ -39,3 +39,14 @@ After that run
     sbt eclipse
 
 in your project.
+
+
+Please be aware that you might perform
+
+```
+sbt update
+sbt compile
+sbt eclipse
+```
+
+whenever you add/change project dependencies.
