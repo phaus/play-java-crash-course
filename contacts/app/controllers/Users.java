@@ -20,7 +20,7 @@ public class Users extends Controller {
 	}
 	
 	public Result create() {
-		return ok();
+		return ok(views.html.Users.create.render(userForm));
 	}
 
 	public Result save() {
@@ -28,7 +28,8 @@ public class Users extends Controller {
 	}
 	
 	public Result show(final UUID id) {
-		return ok();
+		User user = User.find.byId(id);
+		return ok(views.html.Users.show.render(user));
 	}
 	
 }

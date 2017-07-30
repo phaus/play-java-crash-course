@@ -1,0 +1,23 @@
+@import helper._
+
+@(userForm: Form[models.User])
+
+@main("Show User") {
+	<div class="row">
+		<div class="col-md-6">
+		@form(routes.Users.save()) {
+    				@CSRF.formField
+			<div class="form-group">
+				<label for="username">username</label>
+				
+				<input type="text" name="lastname" 
+					value="@userForm("lastname").getValue.orElse("")"  
+					placeholder="userform" 
+					id="username" 
+					class="form-control "/>
+					
+			</div>      				
+    		}
+		</div>
+	</div>
+}

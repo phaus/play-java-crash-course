@@ -1,0 +1,18 @@
+@(user: models.User)
+
+@main("Show User") {
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-9">
+			<div class="jumbotron">
+				<h1>@user.name</h1>
+				<p>
+					<dl>
+						<dt>Id</dt><dd>@user.id</dd>
+						<dt>Email</dt><dd>@user.email</dd>
+					</dl>
+				</p>
+			</div>
+		</div>
+  	</div>
+}
