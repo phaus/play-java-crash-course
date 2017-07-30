@@ -12,7 +12,6 @@ libraryDependencies ++= Seq(
   jdbc,
   javaJdbc % Test,
   guice,
-  guice,
   "com.h2database" % "h2" % "1.4.192",
   "org.webjars" %% "webjars-play" % "2.6.0",
   "org.webjars" % "bootstrap" % "3.3.7-1"
