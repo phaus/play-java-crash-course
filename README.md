@@ -50,3 +50,31 @@ sbt eclipse
 ```
 
 whenever you add/change project dependencies.
+
+### Debugging
+
+Play supports remote Debugging:
+
+```
+sbt -jvm-debug 9999
+```
+
+Now you can connect your IDE via remote debugging at Port 9999.
+
+## Testing
+
+There is a specific application configuration for tests: `application.test.conf` via `javaOptions in Test += "-Dconfig.file=conf/application.test.conf"` in the `build.sbt` with the test started, using this configuration.
+
+### Running Tests
+
+```
+sbt 
+[contacts] $ reload
+[contacts] $ test
+[info] application - Creating Pool for datasource 'default'
+[info] application - Shutting down connection pool.
+[info] application - Creating Pool for datasource 'test'
+[info] application - Shutting down connection pool.
+[info] Passed: Total 2, Failed 0, Errors 0, Passed 2
+[success] Total time: 6 s, completed Jul 30, 2017 2:37:43 PM
+```

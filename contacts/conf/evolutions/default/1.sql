@@ -4,8 +4,11 @@
 # --- !Ups
 
 create table user (
+  id                            uuid not null,
   email                         varchar(255),
-  password                      varchar(255)
+  name                          varchar(255),
+  password                      varchar(255),
+  constraint pk_user primary key (id)
 );
 
 
