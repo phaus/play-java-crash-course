@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import io.ebean.Finder;
 import io.ebean.Model;
 import play.data.validation.Constraints.Email;
 import play.data.validation.Constraints.Required;
@@ -15,6 +16,8 @@ import play.data.validation.Constraints.Required;
 @Entity
 public class User extends Model {
 
+    public static Finder<UUID, User> find = new Finder<>(User.class);
+	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public UUID id;

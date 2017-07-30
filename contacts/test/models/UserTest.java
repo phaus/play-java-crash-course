@@ -5,7 +5,6 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import io.ebean.Ebean;
 import play.Application;
 import play.Logger;
 import play.inject.guice.GuiceApplicationBuilder;
@@ -25,7 +24,7 @@ public class UserTest extends WithApplication {
 		user.email = email;
 		user.password = "secret";
 		user.save();
-		User savedUser = Ebean.find(User.class).where().eq("email", email).findUnique();
+		User savedUser = User.find.query().where().eq("email", email).findUnique();
 		assertEquals(savedUser.email, email);
 		Logger.info("saveUser id: {}", savedUser.id);
 		assertTrue(savedUser.id != null);
