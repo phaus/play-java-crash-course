@@ -5,8 +5,9 @@
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index
 
-GET		/users/create				controllers.Users.create
+GET		/users						controllers.Users.index
 POST		/users						controllers.Users.save
+GET		/users/create				controllers.Users.create
 GET		/users/:id					controllers.Users.show(id: java.util.UUID)
 
 # Map static resources from the /public folder to the /assets URL path

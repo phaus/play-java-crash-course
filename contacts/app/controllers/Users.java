@@ -19,6 +19,10 @@ public class Users extends Controller {
 		this.userForm = formFactory.form(User.class);
 	}
 	
+	public Result index() {
+		return ok();
+	}
+	
 	public Result create() {
 		return ok(views.html.Users.create.render(userForm));
 	}
