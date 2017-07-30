@@ -1,0 +1,33 @@
+image: gitlab.innoq.com:5001/innoq/play-build-s2:latest
+
+stages:
+  - build
+  - test
+  - publish
+
+sbt:
+  stage: build
+  tags:
+    - docker
+    - rack
+  script:
+    - cd contacts && sbt compile -Dsbt.log.noformat=true -Dsbt.ivy.home=/cache/.ivy2/
+
+test:
+  stage: test
+  tags:
+    - docker
+    - rack
+  script:
+    - cd contacts && sbt test -Dsbt.log.noformat=true -Dsbt.ivy.home=/cache/.ivy2/
+
+dist:
+  stage: publish
+  tags:
+    - docker
+    - rack
+  script:
+    - cd contacts && sbt dist -Dsbt.log.noformat=true -Dsbt.ivy.home=/cache/.ivy2/
+  artifacts:
+    paths:
+    - contacts/target/universal/contacts-*.zip
