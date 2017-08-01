@@ -1,0 +1,12 @@
+@import helper._
+
+@(userForm: Form[models.User], user: models.User)
+
+@main("Edit User") {
+	<div class="row">
+		<div class="col-md-6">
+		@form(routes.Users.update(user.id)) {
+			@_user_form(userForm)	
+		}
+	</div>
+}

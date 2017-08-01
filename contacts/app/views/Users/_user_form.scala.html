@@ -1,0 +1,45 @@
+@import helper._
+
+@(userForm: Form[models.User])
+    			@CSRF.formField
+			<div class="form-group">
+				<label for="name">name</label>
+				
+				<input type="text" name="name" 
+					value="@userForm("name").getValue.orElse("")"  
+					placeholder="name" 
+					id="name" 
+					class="form-control "/>
+					
+			</div>      	
+
+			<div class="form-group">
+				<label for="email">email</label>
+				
+				<input type="text" name="email" 
+					value="@userForm("email").getValue.orElse("")"  
+					placeholder="email" 
+					id="email" 
+					class="form-control "/>
+					
+			</div>     
+						
+			<div class="form-group">
+				<a href="@routes.Users.index()" class="btn btn-default">
+					cancel
+				</a>      
+				<input type="submit" class="btn btn-success" value="save"/>
+			</div>						
+
+			@if(userForm.errors.size() > 0) {
+			<div class="row">
+						<div class="alert alert-danger alert-container animated fadeInDown" role="alert">
+				@for((key, value) <- userForm.errors) {
+					<strong>@key.toString():</strong>  
+						@for(err <- value) {
+							@err.message().toString()<br />
+		 			}
+			    }
+			    </div>
+			</div>
+			}

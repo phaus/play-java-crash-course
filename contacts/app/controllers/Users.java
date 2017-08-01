@@ -29,6 +29,20 @@ public class Users extends Controller {
 		return ok(views.html.Users.create.render(userForm));
 	}
 
+	public Result edit(final UUID id) {
+		final User user = User.find.byId(id);
+		if(user == null) {
+			flash("alert", "User could not be found.");
+			return notFound("user with id " + id + " not found!");		
+		}
+		final Form<User> filledUserForm = userForm.fill(user);
+		return ok(views.html.Users.edit.render(filledUserForm, user));		
+	}
+
+	public Result update(final UUID id) {
+		return ok();
+	}
+	
 	public Result save() {
 		final Form<User> filledUserForm = userForm.bindFromRequest();
 		if (filledUserForm.hasErrors()) {
