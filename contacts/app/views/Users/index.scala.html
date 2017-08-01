@@ -14,7 +14,9 @@
 				<tr>
 					<td><a href="@routes.Users.show(user.id)">@user.name</a></td>
 					<td>@user.email</td>
-					<td></td>
+					<td>
+						<a href="@routes.Users.edit(user.id)">edit</a>
+					</td>
 				</tr>
 				}
 			</table>
