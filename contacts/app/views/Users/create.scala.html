@@ -8,12 +8,12 @@
 		@form(routes.Users.save()) {
     				@CSRF.formField
 			<div class="form-group">
-				<label for="username">username</label>
+				<label for="name">name</label>
 				
-				<input type="text" name="username" 
-					value="@userForm("username").getValue.orElse("")"  
-					placeholder="userform" 
-					id="username" 
+				<input type="text" name="name" 
+					value="@userForm("name").getValue.orElse("")"  
+					placeholder="name" 
+					id="name" 
 					class="form-control "/>
 					
 			</div>      	
