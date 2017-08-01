@@ -21,7 +21,7 @@ public class Users extends Controller {
 	}
 	
 	public Result index() {
-		final List<User> users = User.find.all();
+		final List<User> users = User.find.query().order("name ASC").findList();
 		return ok(views.html.Users.index.render(users));
 	}
 	
