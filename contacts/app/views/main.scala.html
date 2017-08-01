@@ -23,9 +23,7 @@
 		      		</a>
 				</div>
 				<div class="navbar-collapse collapse navbar-inverse-collapse">
-		        		<ul class="nav navbar-nav">
-		        			<li @if(request().path().startsWith("/users")){class="active"}><a href="@routes.Users.index()">Users</a></li>
-		        		</ul>	
+				@_navigation( request().path() )
 				</div>		
 			</div>
 		</nav>    

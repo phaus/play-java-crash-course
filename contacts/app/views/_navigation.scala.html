@@ -1,0 +1,5 @@
+@(path: String)
+
+<ul class="nav navbar-nav">
+	<li @if(path.startsWith("/users")){class="active"}><a href="@routes.Users.index()">Users</a></li>
+</ul>	
