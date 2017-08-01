@@ -28,7 +28,15 @@ public class Users extends Controller {
 	}
 
 	public Result save() {
-		return ok();
+		final Form<User> filledUserForm = userForm.bindFromRequest();
+		if (filledUserForm.hasErrors()) {
+			flash("alert", "User could not be saved.");
+			return badRequest(views.html.Users.create.render(filledUserForm));
+		}	
+		final User user = filledUserForm.get();
+		user.save();
+        flash("notice", "User was successfully saved.");
+		return redirect(routes.Users.index());
 	}
 	
 	public Result show(final UUID id) {
