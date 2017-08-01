@@ -24,6 +24,29 @@
 				</div>
 			</div>
 		</nav>    
+		
+    		@if(flash.containsKey("alert")) {
+		<div class="alert alert-danger alert-container animated fadeInDown" role="alert">
+			<div class="container alert-dismissible">
+				@Html(flash.get("alert")) 
+				<button type="button" class="close" data-dismiss="alert" aria-label="close">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+		</div>
+    		}
+
+    		@if(flash.containsKey("notice")) {
+		<div class="alert alert-success alert-container animated fadeInDown" role="alert">
+			<div class="container alert-dismissible">
+				@Html(flash.get("notice")) 
+				<button type="button" class="close" data-dismiss="alert" aria-label="close">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+		</div>
+    		}
+		
         <div class="container">
         @content
         </div>

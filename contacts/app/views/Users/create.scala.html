@@ -38,4 +38,17 @@
     		}
 		</div>
 	</div>
+	
+	@if(userForm.errors.size() > 0) {
+	<div class="row">
+				<div class="alert alert-danger alert-container animated fadeInDown" role="alert">
+		@for((key, value) <- userForm.errors) {
+			<strong>@key.toString():</strong>  
+				@for(err <- value) {
+					@err.message().toString()<br />
+ 			}
+	    }
+	    </div>
+	</div>
+	}
 }
