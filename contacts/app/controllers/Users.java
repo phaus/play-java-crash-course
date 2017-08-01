@@ -40,7 +40,21 @@ public class Users extends Controller {
 	}
 
 	public Result update(final UUID id) {
-		return ok();
+		final Form<User> filledUserForm = userForm.bindFromRequest();
+		final User user = User.find.byId(id);
+		if(user == null) {
+			flash("alert", "User could not be found.");
+			return notFound("user with id " + id + " not found!");					
+		}
+		if (filledUserForm.hasErrors()) {
+			flash("alert", "User could not be saved.");
+			return badRequest(views.html.Users.edit.render(filledUserForm, user));
+		}			
+		user.name = filledUserForm.get().name;
+		user.email = filledUserForm.get().email;
+		user.save();
+        flash("notice", "User was successfully saved.");
+		return redirect(routes.Users.index());
 	}
 	
 	public Result save() {
