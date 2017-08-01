@@ -1,0 +1,23 @@
+
+@(users: List[models.User])
+
+@main("Users") {
+	<div class="row">
+		<div class="col-md-12">
+			<table>
+				<tr>
+					<th>Name</th>
+					<th>Email</th>
+					<th></th>
+				</tr>
+				@for(user <- users) {
+				<tr>
+					<td>@user.name</td>
+					<td>@user.email</td>
+					<td></td>
+				</tr>
+				}
+			</table>
+		</div>	
+	</div>
+}

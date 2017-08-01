@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.List;
 import java.util.UUID;
 
 import javax.inject.Inject;
@@ -20,7 +21,8 @@ public class Users extends Controller {
 	}
 	
 	public Result index() {
-		return ok();
+		final List<User> users = User.find.all();
+		return ok(views.html.Users.index.render(users));
 	}
 	
 	public Result create() {
