@@ -9,6 +9,7 @@ import javax.persistence.Id;
 
 import io.ebean.Finder;
 import io.ebean.Model;
+import play.Logger;
 import play.data.validation.Constraints.Email;
 import play.data.validation.Constraints.Required;
 
@@ -29,4 +30,13 @@ public class User extends Model {
 	public String name;
 	public String password;
 	
+	public void setEmail(final String email) {
+		this.email = email;
+		Logger.info("setting email to {}", email);
+	}
+	
+	public String getEmail() {
+		Logger.info("getting email {}", email);
+		return email;
+	}	
 }
