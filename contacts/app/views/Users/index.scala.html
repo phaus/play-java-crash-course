@@ -1,3 +1,4 @@
+@import helper._
 
 @(users: List[models.User])
 
@@ -14,8 +15,14 @@
 				<tr>
 					<td><a href="@routes.Users.show(user.id)">@user.name</a></td>
 					<td>@user.email</td>
-					<td>
-						<a href="@routes.Users.edit(user.id)">edit</a>
+					<td>						
+						@form(routes.Users.delete(user.id)) { 
+						@CSRF.formField
+						<div class="btn-group btn-group-sm" role="group" aria-label="user-tools">
+							<a class="btn btn-default btn-sm" role="button" href="@routes.Users.edit(user.id)">edit</a>
+							<button class="btn btn-danger btn-sm">delete</button> 
+						</div>	
+						}
 					</td>
 				</tr>
 				}

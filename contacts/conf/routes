@@ -9,6 +9,7 @@ GET		/users						controllers.Users.index
 POST		/users						controllers.Users.save
 GET		/users/create				controllers.Users.create
 GET		/users/:id/edit				controllers.Users.edit(id: java.util.UUID)
+POST		/users/:id/delete			controllers.Users.delete(id: java.util.UUID)
 GET		/users/:id					controllers.Users.show(id: java.util.UUID)
 POST		/users/:id					controllers.Users.update(id: java.util.UUID)
 

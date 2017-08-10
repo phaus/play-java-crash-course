@@ -57,6 +57,14 @@ public class Users extends Controller {
 		return redirect(routes.Users.index());
 	}
 	
+	public Result delete(final UUID id) {
+		User user = User.find.byId(id);
+		if(user != null) {
+			user.deletePermanent();
+		}
+		return redirect(routes.Users.index());		
+	}
+	
 	public Result save() {
 		final Form<User> filledUserForm = userForm.bindFromRequest();
 		if (filledUserForm.hasErrors()) {
